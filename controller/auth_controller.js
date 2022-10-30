@@ -134,7 +134,7 @@ const auth_controller = {
 
             const user = await userModel.findById(req.user._id)
 
-            console.log(index)
+        
             user.tasks.splice(index, 1)
 
             await user.save();
@@ -154,21 +154,16 @@ const auth_controller = {
         try {
 
             const { taskId } = req.params;
-            const { title, description } = req.body;
+           
 
             const user = await userModel.findById(req.user._id)
 
-            console.log(taskId)
+            
             user.task = await user.tasks.find(
                 (task) => task._id.toString() === taskId.toString()
               );
           
-            const data = {
-                title,
-                description,
-                completed: false,
-                createdAt: new Date(Date.now())
-            }
+         
 
             user.task.completed = !user.task.completed
 
