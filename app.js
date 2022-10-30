@@ -25,7 +25,7 @@ app.use(cors())
 app.use(cookieParser())
 app.use(express.json())
 app.use(router)
-app.ger((req,res)=>{
+app.get((req,res)=>{
   res.send("Server is working")
 })
 app.listen(process.env.PORT, () => {
